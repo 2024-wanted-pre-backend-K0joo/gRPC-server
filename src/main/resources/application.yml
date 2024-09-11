@@ -2,7 +2,14 @@ spring:
   application:
     name: grpc-server
 
+  profiles:
+    include:
+      - secret
+
 # gRPC ?? ?? ??
 grpc:
   server:
     port: 50052
+
+
+

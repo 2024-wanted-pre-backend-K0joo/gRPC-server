@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+// 여기에 내가 원하는 패키지명을 작성한다.
+option java_package="wanted.grpc_server";
+option java_outer_classname = "MemberProto";
+
+// 서비스 정의
+service MemberService{
+  // 서비스 전송
+  rpc CreateMember (MemberRequest) returns (MemberCreateResponse);
+}
+
+// 멤버 생성 요청 객체
+message MemberRequest {
+  string user_id = 1;
+  string account = 2;
+  string password = 3;
+  string name = 4;
+  string phone = 5;
+}
+
+// 멤버 생성 응답 객체
+message MemberCreateResponse {
+  string user_id = 1;
+  string account = 2;
+  string name = 3;
+  string phone = 4;
+  int32 status_code = 5; // 상태 코드 (예: 200, 400, 500 등)
+  string message = 6;    // 응답 메시지 (예: "성공", "실패: 중복된 계정" 등)
+}
